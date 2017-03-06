@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget id="com.ionicframework.crmApp473083" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>客满分2.0</name>
+  <description>An awesome Ionic/Cordova app.</description>
+  <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+  <content src="index.html"/>
+  <access origin="*"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+  <allow-intent href="tel:*"/>
+  <allow-intent href="sms:*"/>
+  <allow-intent href="mailto:*"/>
+  <allow-intent href="geo:*"/>
+  <platform name="android">
+    <allow-intent href="market:*"/>
+    <!-- code-push热更新的key  -->
+    <preference name="CodePushDeploymentKey" value="G5FRo-gFVIeuvpxpS8MbMkUz4rRP41bycNLtM" />
+    <splash src="resources\android\splash\drawable-land-ldpi-screen.png" density="land-ldpi"/>
+    <splash src="resources\android\splash\drawable-land-mdpi-screen.png" density="land-mdpi"/>
+    <splash src="resources\android\splash\drawable-land-hdpi-screen.png" density="land-hdpi"/>
+    <splash src="resources\android\splash\drawable-land-xhdpi-screen.png" density="land-xhdpi"/>
+    <splash src="resources\android\splash\drawable-land-xxhdpi-screen.png" density="land-xxhdpi"/>
+    <splash src="resources\android\splash\drawable-port-ldpi-screen.png" density="port-ldpi"/>
+    <splash src="resources\android\splash\drawable-port-mdpi-screen.png" density="port-mdpi"/>
+    <splash src="resources\android\splash\drawable-port-hdpi-screen.png" density="port-hdpi"/>
+    <splash src="resources\android\splash\drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
+    <splash src="resources\android\splash\drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
+    <splash src="resources\android\splash\drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
+    <icon src="resources\android\icon\drawable-ldpi-icon.png" density="ldpi"/>
+    <icon src="resources\android\icon\drawable-mdpi-icon.png" density="mdpi"/>
+    <icon src="resources\android\icon\drawable-hdpi-icon.png" density="hdpi"/>
+    <icon src="resources\android\icon\drawable-xhdpi-icon.png" density="xhdpi"/>
+    <icon src="resources\android\icon\drawable-xxhdpi-icon.png" density="xxhdpi"/>
+    <icon src="resources\android\icon\drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
+  </platform>
+  <platform name="ios">
+    <allow-intent href="itms:*"/>
+    <allow-intent href="itms-apps:*"/>
+    <!-- code-push热更新的key  -->
+    <preference name="CodePushDeploymentKey" value="QOZPQ_vj9CqsH-XJ9yiOm3S4vG5u41bycNLtM" />
+  </platform>
+  <preference name="AndroidPersistentFileLocation" value="Compatibility"/>
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <!--WebView是否出现橡皮筋滚动条，（默认false，不出现）-->
+  <preference name="DisallowOverscroll" value="true"/>
+  <!--  是否全屏 （为true在Android上状态栏显示不出来）-->
+  <preference name="Fullscreen" value="false"/>
+  <preference name="android-minSdkVersion" value="16"/>
+  <!--BackupWebStorage字符串值，默认为cloud。有效的设置值有：none、local和cloud。-->
+  <preference name="BackupWebStorage" value="none"/>
+  <!--用"SplashScreen"指定启动页面文件名后缀为screen.png-->
+  <preference name="SplashScreen" value="screen"/>
+  <!--启动画面是否拉伸适应屏幕  true 为禁止拉伸   在Android平台下的特殊设置-->
+  <preference name="SplashMaintainAspectRatio" value="true"/>
+  <!--ionic.Platform.exitApp()退出后，再进入应用 splashscreen是否显示   false为不显示  在Android平台下的特殊设置 -->
+  <preference name="SplashShowOnlyFirstTime" value="false" />
+  <!--显示启动页面的时间长度   (默认为：3000， 设为0则没有启动画面)-->
+  <preference name="SplashScreenDelay" value="60000"/>
+  <!--是否自动隐藏启动页面  （默认为：true，自动隐藏）-->
+  <preference name="AutoHideSplashScreen" value="false"/>
+  <!--启动页面是否有旋转动画，进度条 （默认为：true，有旋转动画）-->
+  <preference name="ShowSplashScreenSpinner" value="false"/>
+  <!--是否显示淡入淡出效果 (默认为：true，显示)-->
+  <preference name="FadeSplashScreen" value="false"/>
+  <!--淡入淡出效果的时间长度  (iOS想禁止启动页面，需设为0)  淡入淡出效果时间是包含在启动画面的时间里的。-->
+  <preference name="FadeSplashScreenDuration" value="300"/>
+  <!--默认为true。 设置为false以打开键盘，在通过Javascript focus()聚焦表单元素时-->
+  <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+  <feature name="StatusBar">
+    <param name="ios-package" onload="true" value="CDVStatusBar"/>
+  </feature>
+
+  <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
+  <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
+  <plugin name="cordova-plugin-whitelist" spec="1.3.1"/>
+  <plugin name="cordova-plugin-console" spec="1.0.5"/>
+  <plugin name="cordova-plugin-statusbar" spec="2.2.1"/>
+  <plugin name="cordova-plugin-device" spec="1.1.4"/>
+  <plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
+  <plugin name="cordova-plugin-crosswalk-webview" spec="~2.3.0">
+    <variable name="XWALK_VERSION" value="23+" />
+    <variable name="XWALK_LITEVERSION" value="xwalk_core_library_canary:17+" />
+    <variable name="XWALK_COMMANDLINE" value="--disable-pull-to-refresh-effect" />
+    <variable name="XWALK_MODE" value="embedded" />
+    <variable name="XWALK_MULTIPLEAPK" value="true" />
+  </plugin>
+</widget>
