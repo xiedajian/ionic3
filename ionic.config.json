@@ -1,6 +1,5 @@
 {
-  "name": "kmf2.0",
+  "name": "iframe_browser",
   "app_id": "",
-  "typescript": true,
-  "v2": true
+  "type": "ionic-angular"
 }
