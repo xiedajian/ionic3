@@ -1,6 +1,6 @@
 This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
-## iframe模拟主体内置浏览器
+## iframe模拟主题内置浏览器
 
 
 
