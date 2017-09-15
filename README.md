@@ -44,11 +44,32 @@ Substitute ios for android if not on a Mac.
 - 全局变量统一写在app.config.ts中
 
 #### 常见命令
+ionic help <command>
+ionic info
+
+ionic start appName
+
+npm install --save-dev --save-exact @ionic/cli-plugin-ionic-angular@latest
+npm install --save-dev --save-exact @ionic/cli-plugin-cordova@latest
+
 ionic g page YourPageName //创建新页面
 ionic g directive YourPageName //创建指令
 ionic g component YourComponentName //创建组件
 ionic g provider YourProviderName //创建服务
 ionic g pipe YourPipeName //创建过滤器
+
+ionic serve
+ionic build
+ionic cordova add platform android
+ionic cordova remove platform android
+
+ionic cordova emulate <platform>
+ionic cordova build <platform>
+ionic cordova run <platform>
+
+ionic cordova platform <action> <platform>
+ionic cordova plugins <action> <platform>
+ionic cordova build android --prod --release
 
 #### 初始化项目步骤
 1.项目需要进行http请求，以及双向绑定，需要在app.module.ts引入下面核心包

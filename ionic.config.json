@@ -1,6 +1,8 @@
 {
-  "name": "捷速外卖",
+  "name": "base-app",
   "app_id": "",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }
