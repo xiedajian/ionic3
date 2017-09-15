@@ -1,5 +1,6 @@
 {
-  "name": "iframe_browser",
+  "name": "捷速外卖",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {}
 }

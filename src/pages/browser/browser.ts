@@ -1,14 +1,19 @@
-/**
- * Created by DreamBoy on 2016/11/21.
- */
 import { Component } from '@angular/core';
-import { NavController, NavParams, PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,PopoverController} from 'ionic-angular';
 import { DomSanitizer } from "@angular/platform-browser";
 import { BrowserPopoverPage } from "./browser-popover";
 
+/**
+ * Generated class for the BrowserPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
 @Component({
   selector: 'page-browser',
-  templateUrl: 'browser.html'
+  templateUrl: 'browser.html',
 })
 export class BrowserPage {
   browser: any = {
@@ -23,7 +28,7 @@ export class BrowserPage {
   };
 
   shareConfig: any = {
-    isShow: false
+    isShow: true
   }; // 分享控制的配置
 
   constructor(public navCtrl: NavController,
@@ -106,7 +111,7 @@ export class BrowserPage {
       }
     }
 
-    let popover = this.popoverCtrl.create(BrowserPopoverPage, {
+    let popover = this.popoverCtrl.create('BrowserPopoverPage', {
       callback: cb
     });
     popover.present({

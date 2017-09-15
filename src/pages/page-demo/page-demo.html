@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>page-demo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<p>{{name}}</p>
+
+
+  <!--自定义组件demo-->
+  <!--1. fatherToSonData="name" 解释：-->
+  <!--1. fatherToSonData是儿子的属性，name是父亲的属性-->
+  <!--1. 父组件向儿子传递了一个数据，这个数据来源与父亲的 name 属性 ，这个数据被绑定到儿子的 fatherToSonData 属性中-->
+  <!--1. 数据从父亲 => 儿子 -->
+  <!--2. (parentClick)="onClick($event)" 解释：-->
+  <!--2. parentClick是儿子的发射出的事件名，对应子组件中 @Output() 声明的事件名-->
+  <!--2. onClick 是父亲自己的事件名-->
+  <!--2. 事件从儿子 => 父亲 -->
+  <component-demo fatherToSonData="name"  (parentClick)="sonToFaterEventCallback($event)"></component-demo>
+
+
+  <p *ngIf="sonToFaterData" style="color: red">儿子传递给父亲事件的参数 ：{{sonToFaterData}}</p>
+  <button (click)="toSonData()" >向子组件传递数据：你好 世界</button>
+  <p></p>
+  <!--jquery demo-->
+  <button class="jqueryClass1">jquery测试-注意箭头函数对this的影响</button>
+  <button class="jqueryClass2">jquery测试-注意箭头函数对this的影响</button>
+
+
+  <!--自定义内置浏览器-->
+  <button (click)="openBrower()">openBrower</button>
+
+
+</ion-content>
