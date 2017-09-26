@@ -34,7 +34,9 @@ import { ComponentsModule } from '../components/components.module';
     HttpModule,
     ComponentsModule,
     //第二个参数是个对象，表示全局配置
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp,{
+
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
