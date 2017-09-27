@@ -12,11 +12,11 @@ export class InterfaceListProvider {
     console.log('Hello InterfaceListProvider Provider');
   }
   /**
-   *  4.1	App版本检测接口
+   *  接口测试
    * @param   data:{version:1}
    * @returns Promise
    */
-  AppVersionCheck() {
+  httpTset() {
     let url = APP_SERVE_URL + "/userLoginRegisterjfsc/selecIntegralApi";
     return this.httpser.get(url, {userId:1});
   }

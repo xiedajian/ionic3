@@ -1,38 +1,83 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>page-demo</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>演示</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<p>{{name}}</p>
+
+    <ion-list>
+        <ion-list-header>
+            http请求
+        </ion-list-header>
+        <ion-item (click)="httpTest()">http请求接口测试</ion-item>
+        <ion-item style="color: red" *ngIf="httpReturnData">结果：{{httpReturnData}}</ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header>
+            定位 与 地图
+        </ion-list-header>
+        <ion-item (click)="getGeolocation()">
+            <button>html5 请求定位</button>
+        </ion-item>
+        <ion-item style="color: red" *ngIf="geolocation.latitude">纬度：{{geolocation.latitude}}</ion-item>
+        <ion-item style="color: red" *ngIf="geolocation.longitude">经度：{{geolocation.longitude}}</ion-item>
+        <ion-item [navPush]="'BaiduMapPage'">百度地图demo</ion-item>
+        <ion-item [navPush]="'GaodemapPage'">高德地图demo</ion-item>
+    </ion-list>
+
+    <!--自定义组件demo-->
+    <!--1. fatherToSonData="name" 解释：-->
+    <!--1. fatherToSonData是儿子的属性，name是父亲的属性-->
+    <!--1. 父组件向儿子传递了一个数据，这个数据来源与父亲的 name 属性 ，这个数据被绑定到儿子的 fatherToSonData 属性中-->
+    <!--1. 加 [] 是为了绑定到变量name上，如果不加 [] ,则传过去的只是字符串 name -->
+    <!--1. 数据从父亲 => 儿子 -->
+    <!--2. (parentClick)="onClick($event)" 解释：-->
+    <!--2. parentClick是儿子的发射出的事件名，对应子组件中 @Output() 声明的事件名-->
+    <!--2. onClick 是父亲自己的事件名-->
+    <!--2. 事件从儿子 => 父亲 -->
+    <ion-list>
+        <ion-list-header>
+            自定义组件父子通信
+        </ion-list-header>
+        <ion-item>
+            <component-demo [fatherToSonData]="name" (parentClick)="sonToFaterEventCallback($event)"></component-demo>
+        </ion-item>
+        <!-- 组件通信传递结果 -->
+        <ion-item><p>{{name}}</p></ion-item>
+        <ion-item>
+            <button (click)="toSonData()">向子组件传递数据：你好 世界</button>
+        </ion-item>
+        <ion-item *ngIf="sonToFaterData" style="color: red">儿子传递给父亲事件的参数 ：{{sonToFaterData}}</ion-item>
+    </ion-list>
 
 
-  <!--自定义组件demo-->
-  <!--1. fatherToSonData="name" 解释：-->
-  <!--1. fatherToSonData是儿子的属性，name是父亲的属性-->
-  <!--1. 父组件向儿子传递了一个数据，这个数据来源与父亲的 name 属性 ，这个数据被绑定到儿子的 fatherToSonData 属性中-->
-  <!--1. 加 [] 是为了绑定到变量name上，如果不加 [] ,则传过去的只是字符串 name -->
-  <!--1. 数据从父亲 => 儿子 -->
-  <!--2. (parentClick)="onClick($event)" 解释：-->
-  <!--2. parentClick是儿子的发射出的事件名，对应子组件中 @Output() 声明的事件名-->
-  <!--2. onClick 是父亲自己的事件名-->
-  <!--2. 事件从儿子 => 父亲 -->
-  <component-demo [fatherToSonData]="name"  (parentClick)="sonToFaterEventCallback($event)"></component-demo>
-  <!-- 组件通信传递结果 -->
-  <p *ngIf="sonToFaterData" style="color: red">儿子传递给父亲事件的参数 ：{{sonToFaterData}}</p>
-  <button (click)="toSonData()" >向子组件传递数据：你好 世界</button>
-  <p></p>
-  <!--jquery demo-->
-  <button class="jqueryClass1">jquery测试-注意箭头函数对this的影响</button>
-  <button class="jqueryClass2">jquery测试-注意箭头函数对this的影响</button>
+    <!--jquery demo-->
+    <ion-item>
+        <button class="jqueryClass1">jquery测试-注意箭头函数对this的影响</button>
+    </ion-item>
+    <ion-item>
+        <button class="jqueryClass2">jquery测试-注意箭头函数对this的影响</button>
+    </ion-item>
 
 
-  <!--自定义内置浏览器-->
-  <button (click)="openBrower()">openBrower</button>
+    <!--自定义内置浏览器-->
+    <ion-item>
+        <button (click)="openBrower()">自定义内置浏览器</button>
+    </ion-item>
+
+    <!--奇淫技巧 隐藏输入框光标  详情见css-->
+    <ion-item>
+        <button ><input type="text" value="我要隐藏光标"/></button>
+    </ion-item>
+    <ion-item>
+        <button ><input type="text" value="我要隐藏光标" class="input-demo"/></button>
+    </ion-item>
+
 
 
 </ion-content>

@@ -10,6 +10,13 @@
 import {Component, Input} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 
+
+//引入自定义的provider
+import {InterfaceListProvider} from '../../providers/interface-list/interface-list';
+import {GeolocationProvider} from '../../providers/geolocation/geolocation';
+
+
+
 /**
  *   引入自定义组件component
  *  1. 先新建组件component
@@ -44,9 +51,15 @@ declare var $: any;
 export class PageDemoPage {
 
   name: string = 'wang';
+  //父子组件通信：儿子传给父亲的数据
   sonToFaterData: string;
+  //http请求返回结果
+  httpReturnData:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public interface_lists: InterfaceListProvider,
+              public geolocation: GeolocationProvider,
+              public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -55,6 +68,22 @@ export class PageDemoPage {
 
   }
 
+  //接口测试
+  httpTest() {
+    this.interface_lists.httpTset().then((returnData) => {
+      console.log(returnData);
+      this.httpReturnData=JSON.stringify(returnData);
+    })
+  }
+  getGeolocation(){
+    // this.geolocation.getGeolocation();
+    this.geolocation.watchPosition();
+  }
+
+  getTpMap(){
+     // this.navCtrl.push('BaiduMapPage');
+     this.navCtrl.push('GaodemapPage');
+  }
 
   //使用jquery的案例
   jqueryDemo() {

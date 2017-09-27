@@ -7,10 +7,11 @@ import {Injectable} from '@angular/core';
 export class GeolocationProvider {
   constructor() {
     // console.log('Hello GeolocationProvider Provider');
+    this.watchPosition();
   }
 
-  latitude:number=0;  //十进制数的纬度
-  longitude:number=0; //十进制数的经度
+  latitude:number;  //十进制数的纬度
+  longitude:number; //十进制数的经度
 
   /**
    * HTML5 Geolocation（地理定位）定位用户的位置
@@ -69,8 +70,8 @@ export class GeolocationProvider {
    */
   showPosition(position) :any{
     console.log(typeof position.coords.latitude);
+    console.log(position.coords.latitude);
     console.log(position.coords.longitude);
-    console.log(this);
     this.latitude = position.coords.latitude;
     this.longitude = position.coords.longitude;
   }
