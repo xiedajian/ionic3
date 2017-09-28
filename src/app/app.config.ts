@@ -55,6 +55,12 @@ export class AppConfig {
         return window.screen.width;
     }
 
+    //获取设备屏幕分辨率
+    public static getFenbianlv() {
+        let x=window.screen.width * window.devicePixelRatio;
+        let y=window.screen.height * window.devicePixelRatio;
+        return [x,y];
+    }
     //获取通话方式
     public static getCallingType():number {
         return this.callingType ;
