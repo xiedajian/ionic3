@@ -39,6 +39,8 @@ export class BrowserPage {
     if(browser) {
       this.browser.title = browser.title;
       this.browser.url = browser.url;
+     // Angular 2 在编译的时候，会自动清理 HTML 输入并转义不安全的代码，因此在这种情况下，脚本不会运行，只能在屏幕上显示为文本。
+      // iframe 的 src 属性是资源 URL 安全上下文，因为不可信源可以在用户不知情的情况下执行某些不安全的操作。但如果我们确认资源的 URL 是安全的，可以使用 Angular 2 中提供的 DomSanitizer 服告知 Angular 该 URL 地址是安全的
       this.browser.secUrl = this.sanitizer.bypassSecurityTrustResourceUrl(browser.url);
 
       if(browser.share) {
